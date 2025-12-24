@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<title>Dear my love <3</title>
+<style>
+body{margin:0;height:100vh;background:linear-gradient(#0a1a3a,#122b5f);overflow:hidden;font-family:Segoe UI,sans-serif;color:#fff}
+.card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;animation:fade 2.5s}
+h1{font-size:44px;color:#ffd700;text-shadow:0 0 10px #ffdd55}
+p{font-size:20px}
+.tree{font-size:90px;margin:10px 0;animation:glow 2s infinite alternate}
+@keyframes glow{from{text-shadow:0 0 8px #0f0}to{text-shadow:0 0 22px #7fff00}}
+@keyframes fade{from{opacity:0;transform:translate(-50%,-60%)}to{opacity:1;transform:translate(-50%,-50%)}}
+.snow{position:absolute;top:-10px;color:#fff;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh)}}
+.btn{position:fixed;bottom:20px;right:20px;padding:10px 16px;border-radius:20px;border:none;background:#ffd700;font-weight:700;cursor:pointer}
+.note{position:fixed;bottom:20px;left:20px;font-size:13px;opacity:.8}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>🎄 Merry Christmas 🎄</h1>
+  <div class="tree">🎄</div>
+  <p>Chúc Dương một mùa Giáng Sinh vui vẻ, hạnh phúc</p>
+  <p>Và al chắc chắn sẽ là an lành nhé :))))</p>
+</div>
+
+<!-- Nhạc (chạy khi có file noel.mp3 cùng thư mục) -->
+<audio id="music" loop>
+  <source src="noel.mp3" type="audio/mpeg" />
+</audio>
+
+<div class="note">Bấm vào <b>màn hình</b> đi iuuu.</div>
+
+<script>
+let played=false;
+document.addEventListener('click',function(){
+  if(!played){
+    document.getElementById('music').play();
+    played=true;
+  }
+});
+</script>
+
+<script>
+for(let i=0;i<70;i++){
+ const s=document.createElement('div');
+ s.className='snow'; s.textContent='❄';
+ s.style.left=Math.random()*innerWidth+'px';
+ s.style.fontSize=(8+Math.random()*14)+'px';
+ s.style.opacity=Math.random();
+ s.style.animationDuration=(5+Math.random()*6)+'s';
+ document.body.appendChild(s);
+}
+</script>
+</body>
+</html>
